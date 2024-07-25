@@ -50,9 +50,9 @@ jobs:
           echo "</ul></body></html>" >> index.html
           cd ..
           
-    #- name: Deploy update index.html to GitHub Pages
-    #  uses: peaceiris/actions-gh-pages@v4
-    #  with:
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    publish_branch: gh-pages
-    #    publish_dir: ./update-html
+    - name: Deploy update index.html to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./update-html
