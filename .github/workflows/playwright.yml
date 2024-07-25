@@ -26,7 +26,7 @@ jobs:
         retention-days: 30
     - name: Set datetime variable
       id: datetime
-      run: echo "current_datetime=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+      run: echo "current_datetime=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
