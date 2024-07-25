@@ -24,10 +24,14 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-
+    - name: Set datetime variable
+      id: datetime
+      run: echo "current_datetime=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./playwright-report
+        destination_dir: "run-${{ env.current_datetime }}"
