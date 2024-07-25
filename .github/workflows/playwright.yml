@@ -40,17 +40,19 @@ jobs:
       run: |
           # Create a list of directories and generate index.html
           mkdir update-html
-          echo "<html><body><h1>Directory Listing</h1><ul>" > update-html/index.html
+          cd update-html
+          echo "<html><body><h1>Directory Listing</h1><ul>" > index.html
           for dir in run-*/ ; do
               if [ -d "$dir" ]; then
-                  echo "<li><a href=\"$dir\">$dir</a></li>" >> update-html/index.html
+                  echo "<li><a href=\"$dir\">$dir</a></li>" >> index.html
               fi
           done
-          echo "</ul></body></html>" >> update-html/index.html
+          echo "</ul></body></html>" >> index.html
+          cd ..
           
-    - name: Deploy update index.html to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: .update-html
+    #- name: Deploy update index.html to GitHub Pages
+    #  uses: peaceiris/actions-gh-pages@v4
+    #  with:
+    #    github_token: ${{ secrets.GITHUB_TOKEN }}
+    #    publish_branch: gh-pages
+    #    publish_dir: ./update-html
