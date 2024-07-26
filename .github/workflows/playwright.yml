@@ -37,7 +37,7 @@ jobs:
         destination_dir: "run-${{ env.current_datetime }}"
 
     - name: Output Frontend URL
-      run: echo "https://sanpasitp-oii.github.io/e2e-01-tests/${{ env.current_datetime }}"
+      run: echo "https://sanpasitp-oii.github.io/e2e-01-tests/run-${{ env.current_datetime }}"
       
     - name: Update index.html
       run: |
