@@ -36,6 +36,9 @@ jobs:
         publish_dir: ./playwright-report
         destination_dir: "run-${{ env.current_datetime }}"
 
+    - name: Output Frontend URL
+      run: echo "https://sanpasitp-oii.github.io/e2e-01-tests/${{ env.current_datetime }}"
+      
     - name: Update index.html
       run: |
           # Create a list of directories and generate index.html
